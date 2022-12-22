@@ -10,7 +10,7 @@
 make start
 ```
 
-### Execute Migrations
+### Execute the migrations
 ```bash
 make migrations-up
 
