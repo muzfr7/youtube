@@ -8,4 +8,5 @@ This repository contains source code for my Youtube channel videos, [click here]
   * [Get started](https://www.youtube.com/watch?v=YGiO60QBbYA) –> [Source Code](https://github.com/muzfr7/youtube/tree/main/get-started-with-echo)
   * [Project structure](https://youtu.be/R0BJcQD_bO8) –> [Source Code](https://github.com/muzfr7/youtube/tree/main/echoblog/part-1)
   * [Database schema](https://youtu.be/0FqVs00CdLk) –> [Source Code](https://github.com/muzfr7/youtube/tree/main/echoblog/part-2)
+  * [Config data]() –> [Source Code](https://github.com/muzfr7/youtube/tree/main/echoblog/part-3)
 * [How to create database migrations using golang-migrate](https://youtu.be/N6aozCr4kr0) -> [Source Code](https://github.com/muzfr7/youtube/tree/main/golang-migrate-demo)
