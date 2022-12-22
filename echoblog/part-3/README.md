@@ -1,31 +1,18 @@
 # ECHO BLOG
 
 ## ER Diagram
-![ER Diagram](docs/er-diagram.png)
+<img src="docs/er-diagram.png" width="40%" />
 
 ## Useful commands
 
-### Create Database and User
-```sql
-CREATE DATABASE echoblog;
-
-CREATE USER echoblog WITH SUPERUSER PASSWORD 'secret';
-
-GRANT ALL PRIVILEGES ON DATABASE echoblog TO echoblog;
-```
-
-### Create migration files
+### Start the app
 ```bash
-migrate create -ext sql -dir db/migrations -seq init_schema
-```
-
-### Set PostgreSQL URL
-```bash
-export POSTGRESQL_URL='postgres://echoblog:secret@localhost:5432/echoblog?sslmode=disable'
+make start
 ```
 
 ### Execute Migrations
 ```bash
-migrate -database ${POSTGRESQL_URL} -path db/migrations up
-migrate -database ${POSTGRESQL_URL} -path db/migrations down
+make migrations-up
+
+make migrations-down
 ```
