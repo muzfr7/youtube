@@ -4,24 +4,36 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/jmoiron/sqlx"
 	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
+	_ "github.com/lib/pq"
 	"github.com/muzfr7/echoblog/config"
 )
 
 func main() {
 	// Read .env file and export variables for this process
 	if err := godotenv.Load(); err != nil {
-		log.Fatal(err.Error())
+		log.Fatal(err)
 	}
 
 	// Populate cfg variable with exported environment variables
 	var cfg config.EnvConfig
 	if err := envconfig.Process("", &cfg); err != nil {
-		log.Fatal(err.Error())
+		log.Fatal(err)
+	}
+
+	// Connect to the database
+	db, err := sqlx.Connect(cfg.DBDriver, cfg.DataSourceName())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err := db.Ping(); err != nil {
+		log.Fatal(err)
 	}
 
 	e := echo.New()
